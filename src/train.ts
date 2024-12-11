@@ -1,8 +1,8 @@
-// H-Task
+// H2-Task
 
-function getPositive(arr:number[]):string{
-    return arr.filter(a => a > 0).join("")
+function getDigit(str:string):string{
+    return str.split('').map(Number).filter(a=> !isNaN(a)).join('')
 }
 
-console.log(getPositive([-21,15,67]))
+console.log(getDigit('mi19alex24'))
 
