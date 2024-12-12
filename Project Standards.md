@@ -5,7 +5,7 @@
 ## Naming standards:
 - Function, method, variable => camelCase
 - class => PascalCase
-- folder => kebab-case
+- folder, file => kebab-case
 - CSS => snake_case
 
 ## Error handling standards
