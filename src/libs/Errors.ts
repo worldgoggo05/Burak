@@ -1,8 +1,8 @@
 export enum HttpCode {
-    OK = 280,
+    OK = 200,
     CREATED = 201,
     NOT_MODIFIED = 304,
-    BAD_REQUEST = 480,
+    BAD_REQUEST = 400,
     UNAUTHORIZED = 401,
     FORBIDDEN = 403,
     NOT_FOUND = 404,
@@ -16,13 +16,15 @@ export enum Message {
     UPDATE_FAILED = "Update is failed!",
 }
 
-export class Errors extends Error {
+class Errors extends Error {
     public code: HttpCode;
     public message: Message;
 
     constructor(statusCode: HttpCode, statusMessage: Message) {
-        super(statusMessage);
+        super();
         this.code = statusCode;
         this.message = statusMessage;
     }
 }
+
+export default Errors;
