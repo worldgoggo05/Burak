@@ -1,24 +1,16 @@
-// I-Task
-// Shunday function yozing, u parametridagi array 
-// ichida eng kop takrorlangan raqamni topib qaytarsin.
-// MASALAN: majorityElement([1,2,3,4,5,4,3,4]) return 4
+// J-Task
+// Shunday function yozing, u string qabul qilsin va string ichidagi eng uzun sozni qaytarsin.
+//MASALAN: findLongestWord("I come from Uzbekistan") return "Uzbekistan"
 
+function findLongestWord(str:string){
+    let arr:string[] = str.split(' ')
+    let longW:string= ""
 
-function majorNum(arr: number[]): number {
-    const FreqMap: { [key: number]: number } = {};
-    
-    for (const num of arr) {
-        FreqMap[num] = (FreqMap[num] || 0) + 1;
-    }
-
-    let maxCount: number = 0;
-    let freqInt: number | null = null;
-
-    for (const num in FreqMap) {
-        if (FreqMap[num] > maxCount) {
-            maxCount = FreqMap[num];
-            freqInt = Number(num);
+    for(let char of arr){
+        if(char.length> longW.length){
+            longW=char
         }
-    }
-    return freqInt as number;
+        
+    }return longW
 }
+console.log(findLongestWord("I come from Uzbekistan"))
