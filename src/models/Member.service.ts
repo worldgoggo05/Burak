@@ -37,12 +37,12 @@ class MemberService {
        }
     }
 
-    // Login process
+    // Login process Define 
     public async processLogin(input: LoginInput): Promise<Member> {
         const member = await this.memberModel
             .findOne(
-                {memberNick: input.memberNick},
-                { memberNick: 1, memberPassword: 1}
+                {memberNick: input.memberNick}, //Filter
+                { memberNick: 1, memberPassword: 1} //Projection
             )
             .exec();
         if(!member) {

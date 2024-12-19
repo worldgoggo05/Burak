@@ -36,7 +36,7 @@ restaurantController.getSignup = (req: Request, res: Response) => {
     }
 }
 
-// Login process
+// Login process 
 restaurantController.processLogin = async (req: Request, res: Response) => {
     try {
         console.log('processLogin');
@@ -52,7 +52,7 @@ restaurantController.processLogin = async (req: Request, res: Response) => {
     }
 }
 
-// Signup process
+// Signup process 
 restaurantController.processSignup = async (req: Request, res: Response) => {
     try {
         console.log('process Signup')
