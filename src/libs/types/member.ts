@@ -1,6 +1,8 @@
+// Member interface
 import { MemberType, MemberStatus } from "../enums/member.enum";
 import { ObjectId } from "mongoose";
 
+// Member interface
 export interface Member {
     _id: ObjectId;
     memberType: MemberType;
@@ -16,6 +18,7 @@ export interface Member {
     updatedAt: Date;
 }
 
+// Member input interface
 export interface MemberInput {
     memberType?: MemberType;
     memberStatus?: MemberStatus;
@@ -28,6 +31,7 @@ export interface MemberInput {
     memberDesc?: string;
 }
 
+// Login input interface
 export interface LoginInput {
     memberNick: string;
     memberPassword: string;

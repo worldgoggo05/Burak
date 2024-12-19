@@ -1,8 +1,11 @@
+// Importing mongoose and schema
 import mongoose, {Schema} from "mongoose";
+
+// Importing enums
 import { MemberType, MemberStatus } from "../libs/enums/member.enum";
 
 
-
+// Member schema
 const memberSchema = new Schema({
     memberType: {
         type: String,

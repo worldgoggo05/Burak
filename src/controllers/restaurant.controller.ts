@@ -5,6 +5,8 @@ import { LoginInput, MemberInput } from "../libs/types/member"
 import { MemberType } from "../libs/enums/member.enum"
 
 const restaurantController: T = {}
+
+// Home page
 restaurantController.goHome = (req: Request, res: Response) => {
     try {
         console.log('goHome');
@@ -14,6 +16,7 @@ restaurantController.goHome = (req: Request, res: Response) => {
     }
 }
 
+// Login page
 restaurantController.getLogin = (req: Request, res: Response) => {
     try {
         console.log('getLogin');
@@ -23,6 +26,7 @@ restaurantController.getLogin = (req: Request, res: Response) => {
     }
 }
 
+// Signup page
 restaurantController.getSignup = (req: Request, res: Response) => {
     try {
         console.log('getSignup');
@@ -32,6 +36,7 @@ restaurantController.getSignup = (req: Request, res: Response) => {
     }
 }
 
+// Login process
 restaurantController.processLogin = async (req: Request, res: Response) => {
     try {
         console.log('processLogin');
@@ -47,6 +52,7 @@ restaurantController.processLogin = async (req: Request, res: Response) => {
     }
 }
 
+// Signup process
 restaurantController.processSignup = async (req: Request, res: Response) => {
     try {
         console.log('process Signup')

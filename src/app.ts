@@ -1,3 +1,4 @@
+// Importing express, path, router, routerAdmin, morgan, and config
 import express from "express"
 import path from "path"
 import router from "./router"

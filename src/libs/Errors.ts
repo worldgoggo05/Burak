@@ -1,3 +1,4 @@
+// HttpCode enum
 export enum HttpCode {
     OK = 200,
     CREATED = 201,
@@ -9,6 +10,7 @@ export enum HttpCode {
     INTERNAL_SERVER_ERROR = 500,
 }
 
+// Message enum
 export enum Message {
     SOMETHING_WENT_WRONG = "Something went wrong!",
     NO_DATA_FOUND = "No data is found!",
@@ -20,6 +22,7 @@ export enum Message {
     WRONG_PASSWORD = "Wrong password!",
 }
 
+// Errors class
 class Errors extends Error {
     public code: HttpCode;
     public message: Message;

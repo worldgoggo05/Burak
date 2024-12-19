@@ -5,12 +5,14 @@ import Errors from "../libs/Errors";
 import { MemberType } from "../libs/enums/member.enum";
 import * as bcrypt from "bcryptjs";
 
+// MemberService class
 class MemberService {
     private readonly memberModel;
     constructor() {
         this.memberModel = MemberModel;
     }
 
+    // Signup process
     public async processSignup(input: MemberInput): Promise<Member> {
         const exist = await this.memberModel
             .findOne({memberType: MemberType.RESTAURANT})
@@ -35,6 +37,7 @@ class MemberService {
        }
     }
 
+    // Login process
     public async processLogin(input: LoginInput): Promise<Member> {
         const member = await this.memberModel
             .findOne(
