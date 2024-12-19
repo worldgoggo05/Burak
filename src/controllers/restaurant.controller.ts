@@ -12,7 +12,7 @@ const memberService = new MemberService();
 restaurantController.goHome = (req: Request, res: Response) => {
     try {
         console.log('goHome');
-        res.send("Home Page");
+        res.render('home');
     } catch (error) {
         console.log(error);
     }
@@ -22,7 +22,7 @@ restaurantController.goHome = (req: Request, res: Response) => {
 restaurantController.getSignup = (req: Request, res: Response) => {
     try {
         console.log('getSignup');
-        res.send("Signup Page");
+        res.render("signup");
     } catch (error) {
         console.log(error);
     }
@@ -32,7 +32,7 @@ restaurantController.getSignup = (req: Request, res: Response) => {
 restaurantController.getLogin = (req: Request, res: Response) => {
     try {
         console.log('getLogin');
-        res.send("Login Page");
+        res.render("login");
     } catch (error) {
         console.log(error);
     }
