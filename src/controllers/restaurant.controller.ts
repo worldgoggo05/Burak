@@ -3,7 +3,7 @@ import {T} from "../libs/types/common"
 import MemberService from "../models/Member.service"
 import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member"
 import { MemberType } from "../libs/enums/member.enum"
-import { Message } from "../libs/Errors"
+import Errors, { Message } from "../libs/Errors"
 
 // BSSR
 const restaurantController: T = {}
@@ -26,6 +26,7 @@ restaurantController.getSignup = (req: Request, res: Response) => {
         res.render("signup");
     } catch (error) {
         console.log(error);
+        res.redirect("/admin");
     }
 }   
 
@@ -36,6 +37,7 @@ restaurantController.getLogin = (req: Request, res: Response) => {
         res.render("login");
     } catch (error) {
         console.log(error);
+        res.redirect("/admin");
     }
 }
 
@@ -55,13 +57,14 @@ restaurantController.processSignup = async (req: AdminRequest, res: Response) =>
             res.send(result);
         });
 
-    } catch (err) {
-        console.log("Error Process Signup: ", err);
-        res.send(err);
+    } catch (error) {
+        console.log('Error Process Login: ', error);
+        const message = error instanceof Errors ? error.message : Message.SOMETHING_WENT_WRONG;
+        res.send(`<script>alert('${message}'); window.location.replace('/admin/signup')</script>`);
     }
 }
 
-    // Login process 
+// Login process 
 restaurantController.processLogin = async (req: AdminRequest, res: Response) => {
     try {
         console.log('processLogin');
@@ -74,11 +77,26 @@ restaurantController.processLogin = async (req: AdminRequest, res: Response) => 
             res.send(result);
         });
     } catch (error) {
-        console.log(error);
-        res.send(error);
+        console.log('Error Process Login: ', error);
+        const message = error instanceof Errors ? error.message : Message.SOMETHING_WENT_WRONG;
+        res.send(`<script>alert('${message}'); window.location.replace('/admin/login')</script>`);
     }
 }
 
+// Logout process
+restaurantController.logout = async (req: AdminRequest, res: Response) => {
+    try {
+        console.log("logout");
+        req.session.destroy(function() {
+            res.redirect("/admin");
+        });
+    } catch (error) {
+        console.log(error);
+        res.redirect("/admin");
+    }
+}
+
+// Check Auth Session
 restaurantController.checkAuthSession = async (req: AdminRequest, res: Response) => {
     try {
         console.log("checkAuthSession");
