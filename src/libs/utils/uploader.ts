@@ -37,6 +37,6 @@ const product_storage = multer.diskStorage({
         cb(null, random_name);
     }       
 });
-
+export const uploadProductImage = multer({ storage: product_storage });
 */
 
