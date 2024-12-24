@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { T } from "../libs/types/common";
-import { MemberInput } from "../libs/types/member";
 import Errors from "../libs/Errors";
 import ProductService from "../models/Product.service";
 
@@ -11,7 +10,6 @@ productController.getAllProducts = async (req: Request, res: Response) => {
     try {
         console.log('getAllProducts')
         res.render('products')
-        // TODO: Token Auth
     } catch (err) {
         console.log("Error getAllProducts: ", err);
         if(err instanceof Errors) {res.status(err.code).json({err});}
